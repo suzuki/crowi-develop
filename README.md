@@ -47,6 +47,7 @@ $ PASSWORD_SEED=somesecretstring \
   MONGO_URI=mongodb://localhost/crowi \
   ELASTICSEARCH_URI=localhost:9200 \
   REDIS_URL=localhost \
+  FILE_UPLOAD=local \
   node app.js
 ```
 
