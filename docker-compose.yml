@@ -1,0 +1,28 @@
+version: '2'
+services:
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - './data/mongodb:/data/db'
+    restart: always
+    ports:
+      - '27017:27017'
+
+  elasticsearch:
+    image: elasticsearch:latest
+    user: elasticsearch
+    volumes:
+      - './data/elasticsearch:/usr/share/elasticsearch/data'
+    restart: always
+    command:
+      - 'sh'
+      - '-c'
+      - './bin/plugin install analysis-kuromoji; ./bin/plugin install mobz/elasticsearch-head; elasticsearch;'
+    ports:
+      - '9200:9200'
+      - '9300:9300'
+
+  redis:
+    image: redis:latest
+    ports:
+      - '6379:6379'
