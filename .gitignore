@@ -1,3 +1,4 @@
 crowi/
 data/elasticsearch/*
+data/elasticsearch-v2/*
 data/mongodb/*

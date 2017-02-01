@@ -9,18 +9,24 @@ services:
       - '27017:27017'
 
   elasticsearch:
-    image: elasticsearch:latest
-    user: elasticsearch
+    build:
+      context: 'elasticsearch/'
     volumes:
       - './data/elasticsearch:/usr/share/elasticsearch/data'
     restart: always
-    command:
-      - 'sh'
-      - '-c'
-      - './bin/plugin install analysis-kuromoji; ./bin/plugin install mobz/elasticsearch-head; elasticsearch;'
     ports:
       - '9200:9200'
       - '9300:9300'
+
+  elasticsearch-v2:
+    build:
+      context: 'elasticsearch-v2/'
+    volumes:
+      - './data/elasticsearch-v2:/usr/share/elasticsearch/data'
+    restart: always
+    ports:
+      - '9201:9200'
+      - '9301:9300'
 
   redis:
     image: redis:latest
