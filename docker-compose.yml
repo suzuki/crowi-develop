@@ -18,15 +18,15 @@ services:
       - '9200:9200'
       - '9300:9300'
 
-  elasticsearch-v2:
-    build:
-      context: 'elasticsearch-v2/'
-    volumes:
-      - './data/elasticsearch-v2:/usr/share/elasticsearch/data'
-    restart: always
-    ports:
-      - '9201:9200'
-      - '9301:9300'
+  # elasticsearch-v2:
+  #   build:
+  #     context: 'elasticsearch-v2/'
+  #   volumes:
+  #     - './data/elasticsearch-v2:/usr/share/elasticsearch/data'
+  #   restart: always
+  #   ports:
+  #     - '9201:9200'
+  #     - '9301:9300'
 
   redis:
     image: redis:latest
