@@ -32,3 +32,8 @@ services:
     image: redis:latest
     ports:
       - '6379:6379'
+
+  plantuml:
+    image: plantuml/plantuml-server:latest
+    ports:
+      - '8080:8080'
