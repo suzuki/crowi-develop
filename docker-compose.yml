@@ -1,5 +1,27 @@
 version: '2'
 services:
+  node:
+    image: node:6
+    user: node
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=development
+      - MONGO_URI=mongodb://mongodb/crowi
+      - REDIS_URL=redis://redis:6379
+      - ELASTICSEARCH_URI=elasticsearch:9200
+      - PLANTUML_URI=//localhost:8080
+      - FILE_UPLOAD=local
+    volumes:
+      - ./crowi:/home/node/app
+    ports:
+      - '3000:3000'
+    command: "npm start"
+    depends_on:
+      - mongodb
+      - elasticsearch
+      - redis
+      - plantuml
+
   mongodb:
     image: mongo:latest
     volumes:
